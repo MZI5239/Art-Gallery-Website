@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+     <style>
+        .section-content {
+            display: none;
+        }
+        .section-content:target {
+            display: block;
+        }
+        #gallery {
+            display: block;
+        }
+        /* Hide gallery when any other section is targeted */
+        body:has(#feedback:target) #gallery,
+        body:has(#about:target) #gallery,
+        body:has(#signin:target) #gallery,
+        body:has(#signup:target) #gallery {
+            display: none;
+        }
+        
+        @media screen and (min-width: 768px) {
+        body {
+            background-color: blue;
+            color: white;
+        }
+        }
+
+        /* For devices with a minimum width of 992px (Large) */
+        @media screen and (min-width: 992px) {
+        body {
+            background-color: tan;
+            color: black;
+        }
+        }
+    </style>
+    <title>Art Gallery</title>
+</head>
+<body>
+    <header>
+        
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container justify-content-center">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#feedback">Feedback</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#login">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+    </header>
+    <section id ="home" class="section-content">
+        <div align="center">
+        <h1>Art Gallery</h1>
+        <p>Welcome to the Art Gallery page.</p>
+        <img src="2.jpg" width="300" height="250" style="margin:10px;">
+        <img src="2.jpg" width="300" height="250" style="margin:10px;">
+        <img src="2.jpg" width="300" height="250" style="margin:10px;"><br>
+
+        <img src="2.jpg" width="300" height="250" style="margin:10px;">
+        <img src="2.jpg" width="300" height="250" style="margin:10px;">
+        <img src="2.jpg" width="300" height="250" style="margin:10px;"><br>
+        <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+        </svg>
+        <button onclick="getLocation()">Get my location</button>
+
+<p id="demo"></p>
+
+<script>
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function success(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+function error() {
+  alert("Sorry, no position available.");
+}
+</script>
+
+        </div>
+        
+    </section>
+
+    
+    <section id="feedback" class="section-content">
+    <div align="center">
+    <form style="width:400px;">
+    <h2>Feedback Form</h2>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="fname"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="lname"><br>
+    <label for="subject">Subject</label><br>
+    <input type="text" placeholder="Subject" required><br>
+    <label for="message">Message</label><br>
+    <textarea placeholder="Message" rows="4" required></textarea><br>
+    <button type="submit">Submit</button>
+    </form>
+    </div>
+    </section>
+
+
+
+
+
+    
+    <section id="about" class="section-content">
+    <div class="container my-5">
+    <div class="row align-items-center">
+        <div class="col-md-6 mb-4">
+            <h2 class="fw-bold">About Our Art Gallery</h2>
+            <p class="text-muted">
+                ArtGallery is a creative space dedicated to showcasing inspiring artworks
+                from talented artists around the world. We believe art has the power to
+                connect people, express emotions, and tell meaningful stories.
+            </p>
+            <p class="text-muted">
+                Our gallery features paintings, sculptures, digital art, and mixed media
+                collections that celebrate creativity, culture, and imagination.
+            </p>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="2.jpg"
+                 class="img-fluid rounded shadow"
+                 alt="Art Gallery">
+        </div>
+    </div>
+</div>
+
+<!-- Mission & Vision -->
+<div class="container mb-5">
+    <div class="row text-center">
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Our Mission</h4>
+                    <p class="card-text text-muted">
+                        To promote creativity and provide a platform for artists to
+                        share their vision with the world.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Our Vision</h4>
+                    <p class="card-text text-muted">
+                        To become a leading art gallery that inspires creativity,
+                        innovation, and artistic expression globally.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+
+
+
+
+
+
+
+    <section id="login" class="section-content">
+           <div class="container py-5">
+    <div class="row justify-content-center align-items-center min-vh-100">
+        <div class="col-sm-10 col-md-7 col-lg-5">
+            <div class="card auth-card">
+                <div class="card-header auth-header text-white">
+                    <h2 class="h4 mb-0" id="title"><i class="bi bi-lock-fill me-2"></i>Login</h2>
+                </div>
+                <div class="card-body p-4">
+                    <form>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+                            </div>
+                        </div>
+                        <div class="mb-3" id="emailGroup" style="display: none;">
+                            <label for="email" class="form-label">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-dark btn-lg">Submit</button>
+                        </div>
+                    </form>
+
+                    <p id="toggleText" class="text-center mt-3 mb-0">
+                        Don't have an account?
+                        <a href="#" class="text-decoration-none" onclick="toggleForm(); return false;">Sign up</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let isLogin = true;
+    const emailGroup = document.getElementById("emailGroup");
+    const title = document.getElementById("title");
+    const toggleText = document.getElementById("toggleText");
+
+    function toggleForm() {
+        if (isLogin) {
+            title.innerHTML = '<i class="bi bi-person-plus-fill me-2"></i>Sign Up';
+            emailGroup.style.display = "block";
+            toggleText.innerHTML = 'Already have an account? <a href="#" class="text-decoration-none" onclick="toggleForm(); return false;">Login</a>';
+        } else {
+            title.innerHTML = '<i class="bi bi-lock-fill me-2"></i>Login';
+            emailGroup.style.display = "none";
+            toggleText.innerHTML = 'Don\'t have an account? <a href="#" class="text-decoration-none" onclick="toggleForm(); return false;">Sign up</a>';
+        }
+        isLogin = !isLogin;
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </section>
+
+
+
+
+    
+</body>
+</html>
