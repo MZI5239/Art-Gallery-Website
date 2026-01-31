@@ -37,8 +37,60 @@
             color: black;
         }
         }
+       
+
+        .form-container {
+            background: #fff;
+            padding: 25px 30px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 12px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #6c63ff;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            border: none;
+            background: #6c63ff;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #554fd8;
+        }
     </style>
     <title>Art Gallery</title>
+    
 </head>
 <body>
     <header>
@@ -107,8 +159,9 @@ function error() {
 
     
     <section id="feedback" class="section-content">
-    <div align="center">
-    <form style="width:400px;">
+        <div align="center">
+    <div class="form-container" >
+    <form align="center">
     <h2>Feedback Form</h2>
     <label for="fname">First name:</label><br>
     <input type="text" id="fname" name="fname" value="fname"><br>
@@ -120,6 +173,7 @@ function error() {
     <textarea placeholder="Message" rows="4" required></textarea><br>
     <button type="submit">Submit</button>
     </form>
+    </div>
     </div>
     </section>
 
